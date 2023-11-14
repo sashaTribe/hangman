@@ -11,3 +11,7 @@ if len(user_guess) == 1 and user_guess.isalpha():
     print("Good guess!")
 else:
     print("Oops, invalid input")
+
+
+lst = ['_' for i in range(3)]
+print(lst)
