@@ -1,4 +1,5 @@
 import random 
+word_list = ['blackberry','apple','cherry','mango','orange']
 
 class Hangman:
 
@@ -15,11 +16,17 @@ class Hangman:
         guess.lower()
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
+            for letter_index in range(len(self.word)):
+                if self.word[letter_index] == guess:
+                    self.word_guessed[letter_index] = guess
+            self.num_letters -= 1
         else:
+            self.num_lives -= 1
             print(f"Sorry, {guess} is not in the word. Try again.")
+            print(f"You have {self.num_lives} lives left.")
 
     def ask_for_input(self):
-        guess = ""
+        #guess = ""
         while True:
             guess = input("Guess the letter: ")
             if len(guess) != 1 and guess.isnotalpha():
@@ -28,3 +35,7 @@ class Hangman:
                 print("You already tried that letter!")
             else:
                 self.check_guess(guess)
+                self.list_of_guesses.append(guess)
+
+start_game = Hangman(word_list)
+start_game.ask_for_input()
