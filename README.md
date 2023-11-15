@@ -50,3 +50,4 @@ python milestone_5.py
 
 ## License Information
 
+This project is licensed under the [MIT License](LICENSE).
