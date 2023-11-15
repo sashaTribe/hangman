@@ -12,7 +12,7 @@ class Hangman:
         self.num_letters = 0
         self.list_of_guesses = []
 
-    def check_guess(self,guess):
+    def __check_guess(self,guess):
         guess.lower()
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
@@ -34,7 +34,7 @@ class Hangman:
             elif guess in self.word_guessed:
                 print("You already tried that letter!")
             else:
-                self.check_guess(guess)
+                self.__check_guess(guess)
                 self.list_of_guesses.append(guess)
 
 start_game = Hangman(word_list)
